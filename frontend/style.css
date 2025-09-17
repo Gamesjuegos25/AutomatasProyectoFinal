@@ -1,0 +1,150 @@
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fbeff2;
+}
+
+.container {
+    max-width: 420px;
+    margin: 48px auto;
+    background: #fff6f0;
+    border-radius: 14px;
+    padding: 28px 20px 20px 20px;
+    border: 1.5px solid #d8b4a6;
+    box-shadow: 0 2px 16px #d8b4a633;
+}
+
+h1 {
+    text-align: center;
+    color: #a67c52;
+    font-size: 1.7em;
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.container textarea {
+    width: 100%;
+    font-size: 1em;
+    margin-bottom: 14px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1.5px solid #e7b7c8;
+    background: #fff0f6;
+    box-sizing: border-box;
+    resize: vertical;
+    color: #a67c52;
+}
+.container textarea:focus {
+    border: 1.5px solid #d8b4a6;
+    outline: none;
+    background: #fff;
+}
+
+.botones {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+button {
+    flex: 1;
+    padding: 10px 0;
+    background: #e7b7c8;
+    color: #a67c52;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 1px 4px #e7b7c822;
+}
+button.limpiar {
+    background: #fff6f0;
+    color: #d8b4a6;
+    border: 1px solid #e7b7c8;
+}
+button.limpiar:hover {
+    background: #fbeff2;
+    color: #a67c52;
+}
+button:hover {
+    background: #d8b4a6;
+    color: #fff;
+}
+
+#result {
+    margin-top: 18px;
+    font-size: 1em;
+    border-radius: 8px;
+    background: #fff6f0;
+    padding: 10px 0 0 0;
+    border: 1.5px solid #e7b7c8;
+    color: #a67c52;
+}
+
+.container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff0f6;
+    color: #a67c52;
+}
+.container th, .container td {
+    border: none;
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 1em;
+}
+.container th {
+    background: #e7b7c8;
+    color: #a67c52;
+    font-weight: 600;
+    border-bottom: 1.5px solid #d8b4a6;
+}
+.container tr:nth-child(even) {
+    background: #fbeff2;
+}
+.token-NUM {
+    color: #a67c52;
+    font-weight: 600;
+}
+.token-OP {
+    color: #e7b7c8;
+    font-weight: 600;
+}
+.token-LPAREN, .token-RPAREN {
+    color: #d8b4a6;
+    font-weight: 600;
+}
+.token-ERROR {
+    color: #d32f2f;
+    font-weight: 600;
+}
+
+.ejemplo {
+    background: #fbeff2;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin: 0 2px;
+    cursor: pointer;
+    font-size: 0.98em;
+    color: #a67c52;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+}
+.ejemplo:hover {
+    background: #e7b7c8;
+    color: #fff;
+}
+
+.ayuda {
+    color: #a67c52;
+    font-size: 0.98em;
+    margin-bottom: 8px;
+    text-align: center;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Analizador Léxico Web</title>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="animated-bg"></div>
+	<div class="container">
+		<h1>Analizador Léxico de Expresiones Aritméticas</h1>
+		<p>Introduce una expresión aritmética y presiona <b>Analizar</b>.<br>
+			<p>Porfavor recuerde ingresar datos y no deje espacios en blanco</b>.<br>
+		Ejemplo: <span class="ejemplo" onclick="setEjemplo('12 + (3.5 * 2) - 7')">12 + (3.5 * 2) - 7</span> <span class="ejemplo" onclick="setEjemplo('(8/2)+5')">(8/2)+5</span></p>
+		<textarea id="inputExpr" placeholder="Escribe una expresión..." rows="3"></textarea>
+		<div class="botones">
+			<button onclick="analizar()">Analizar</button>
+			<button onclick="limpiar()" class="limpiar">Limpiar</button>
+		</div>
+		<div id="ayuda" class="ayuda"></div>
+		<div id="result"></div>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
