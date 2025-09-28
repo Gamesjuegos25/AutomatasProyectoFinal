@@ -8,13 +8,17 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div class="animated-bg"></div>
+	<div class="lights-bg">
+		<div class="light light1"></div>
+		<div class="light light2"></div>
+		<div class="light light3"></div>
+	</div>
 	<div class="container">
-		<h1>Analizador Léxico de Expresiones Aritméticas</h1>
-		<p>Introduce una expresión aritmética y presiona <b>Analizar</b>.<br>
-			<p>Porfavor recuerde ingresar datos y no deje espacios en blanco</b>.<br>
+		<h1>Analizador Léxico de Ecuaciones Aritméticas</h1>
+		<p>Introduce una <b>ecuación aritmética</b> (debe contener operadores) y presiona <b>Analizar</b>.<br>
+			<p>No se permiten términos independientes. Debe contener al menos un operador (+, -, *, /).<br>
 		Ejemplo: <span class="ejemplo" onclick="setEjemplo('12 + (3.5 * 2) - 7')">12 + (3.5 * 2) - 7</span> <span class="ejemplo" onclick="setEjemplo('(8/2)+5')">(8/2)+5</span></p>
-		<textarea id="inputExpr" placeholder="Escribe una expresión..." rows="3"></textarea>
+		<textarea id="inputExpr" placeholder="Escribe una ecuación aritmética..." rows="3"></textarea>
 		<div class="botones">
 			<button onclick="analizar()">Analizar</button>
 			<button onclick="limpiar()" class="limpiar">Limpiar</button>
