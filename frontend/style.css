@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 420px;
+    max-width: 600px;
     margin: 48px auto;
     background: #fff6f0;
     border-radius: 14px;
@@ -147,4 +147,89 @@ button:hover {
     font-size: 0.98em;
     margin-bottom: 8px;
     text-align: center;
+}
+
+.ejemplos-container {
+    background: #fff0f6;
+    border: 1px solid #e7b7c8;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.ejemplos-container h3 {
+    color: #a67c52;
+    margin: 0 0 10px 0;
+    font-size: 1em;
+    text-align: center;
+}
+
+.ejemplos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 8px;
+}
+
+.ejemplos-grid .ejemplo {
+    display: block;
+    text-align: center;
+    padding: 8px 6px;
+    background: #fbeff2;
+    border: 1px solid #e7b7c8;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.ejemplos-grid .ejemplo:hover {
+    background: #e7b7c8;
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(231, 183, 200, 0.3);
+}
+
+.error-container h4 {
+    color: #d32f2f;
+    margin: 15px 0 8px 0;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.error-container {
+    background: #fff0f0;
+    border: 1px solid #ffb3b3;
+}
+
+.error-container h3 {
+    color: #d32f2f;
+}
+
+.ejemplo-error {
+    display: block;
+    text-align: center;
+    padding: 8px 6px;
+    background: #ffe6e6;
+    border: 1px solid #ffb3b3;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #d32f2f;
+}
+
+.ejemplo-error:hover {
+    background: #ffcccc;
+    color: #b71c1c;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(255, 179, 179, 0.4);
+}
+
+.ejemplo-error small {
+    display: block;
+    font-size: 0.75em;
+    color: #999;
+    margin-top: 2px;
+    font-style: italic;
 }

@@ -17,14 +17,54 @@
 		<h1>Analizador Léxico de Ecuaciones Aritméticas</h1>
 		<p>Introduce una <b>ecuación aritmética</b> (debe contener operadores) y presiona <b>Analizar</b>.<br>
 			<p>No se permiten términos independientes. Debe contener al menos un operador (+, -, *, /).<br>
-			<p> acepta expresiones como:<b><br>
-				con parentesis<br>
-				sin parentesis <br>
-				+,-,*,/<br>
-				deben ser decimal<br>
-				
-			</b></p>
-		Ejemplo: <span class="ejemplo" onclick="setEjemplo('12 + (3.5 * 2) - 7')">12 + (3.5 * 2) - 7</span> <span class="ejemplo" onclick="setEjemplo('(8/2)+5')">(8/2)+5</span></p>
+			<p><b>Haz click en cualquier ejemplo para probarlo:</b></p>
+		</p>
+		
+		<div class="ejemplos-container">
+			<h3> Ejemplos válidos (haz click para probar):</h3>
+			<div class="ejemplos-grid">
+				<span class="ejemplo" onclick="setEjemplo('2.5 + 3.7')">2.5 + 3.7</span>
+				<span class="ejemplo" onclick="setEjemplo('10.0 - 4.2')">10.0 - 4.2</span>
+				<span class="ejemplo" onclick="setEjemplo('5.5 * 2.0')">5.5 * 2.0</span>
+				<span class="ejemplo" onclick="setEjemplo('15.0 / 3.0')">15.0 / 3.0</span>
+				<span class="ejemplo" onclick="setEjemplo('(2.5 + 3.0) * 4.0')">(2.5 + 3.0) * 4.0</span>
+				<span class="ejemplo" onclick="setEjemplo('12.0 + (3.5 * 2.0) - 7.0')">12.0 + (3.5 * 2.0) - 7.0</span>
+				<span class="ejemplo" onclick="setEjemplo('(8.0 / 2.0) + 5.0')">(8.0 / 2.0) + 5.0</span>
+				<span class="ejemplo" onclick="setEjemplo('((2.0 + 3.0) * 4.0) - 1.0')">((2.0 + 3.0) * 4.0) - 1.0</span>
+				<span class="ejemplo" onclick="setEjemplo('7.5 - 2.3 + 4.8 * 1.2')">7.5 - 2.3 + 4.8 * 1.2</span>
+				<span class="ejemplo" onclick="setEjemplo('(9.0 + 1.0) / (3.0 - 1.0)')">(9.0 + 1.0) / (3.0 - 1.0)</span>
+				<span class="ejemplo" onclick="setEjemplo('((6.0 * 2.0) + 3.0) / (4.0 + 1.0)')">((6.0 * 2.0) + 3.0) / (4.0 + 1.0)</span>
+			</div>
+		</div>
+
+		<div class="ejemplos-container error-container">
+			<h3> Ejemplos de errores específicos (qué falta para funcionar):</h3>
+			<p><small><strong>Todos los errores son validados por el servidor Python:</strong></small></p>
+			
+			<h4>🔹 Errores de Contenido:</h4>
+			<div class="ejemplos-grid">
+				<span class="ejemplo-error" onclick="setEjemplo('')">(vacío) <small>(falta toda la expresión)</small></span>
+				<span class="ejemplo-error" onclick="setEjemplo('5.0')">5.0 <small>(falta operador y otro número)</small></span>
+				<span class="ejemplo-error" onclick="setEjemplo('2.5 + abc')">2.5 + abc <small>(letra inválida)</small></span>
+				<span class="ejemplo-error" onclick="setEjemplo('5 + 3.0')">5 + 3.0 <small>(falta .0 en el 5)</small></span>
+			</div>
+			
+			<h4>🔹 Errores de Posición:</h4>
+			<div class="ejemplos-grid">
+				<span class="ejemplo-error" onclick="setEjemplo('+ 3.0')">+ 3.0 <small>(falta número al inicio)</small></span>
+				<span class="ejemplo-error" onclick="setEjemplo('5.0 +')">5.0 + <small>(falta número después del +)</small></span>
+				<span class="ejemplo-error" onclick="setEjemplo('2.0 + * 3.0')">2.0 + * 3.0 <small>(falta número entre operadores)</small></span>
+				<span class="ejemplo-error" onclick="setEjemplo('2.0 3.0')">2.0 3.0 <small>(falta operador entre números)</small></span>
+			</div>
+			
+			<h4>🔹 Errores de Paréntesis:</h4>
+			<div class="ejemplos-grid">
+				<span class="ejemplo-error" onclick="setEjemplo('(2.0 + 3.0')">( 2.0 + 3.0 <small>(falta cerrar paréntesis)</small></span>
+				<span class="ejemplo-error" onclick="setEjemplo('2.0 + 3.0)')">2.0 + 3.0 ) <small>(falta abrir paréntesis)</small></span>
+				<span class="ejemplo-error" onclick="setEjemplo('(+ 3.0)')">( + 3.0 ) <small>(falta número después del ()</small></span>
+				<span class="ejemplo-error" onclick="setEjemplo('2.0(3.0 + 4.0)')">2.0(3.0 + 4.0) <small>(falta operador antes del ()</small></span>
+			</div>
+		</div>
 		<textarea id="inputExpr" placeholder="Escribe una ecuación aritmética..." rows="3"></textarea>
 		<div class="botones">
 			<button onclick="analizar()">Analizar</button>

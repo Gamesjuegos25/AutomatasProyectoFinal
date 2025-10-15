@@ -1,12 +1,5 @@
 function analizar() {
     const expr = document.getElementById("inputExpr").value.trim();
-    const soloDecimales = /^([ \t]*(\d+\.\d+)[ \t]*([+\-*/][ \t]*(\d+\.\d+)[ \t]*)*)*([() \t]*)*$/;
-    
-    if (!soloDecimales.test(expr.replace(/[()]/g, ''))) {
-        document.getElementById("ayuda").innerHTML = "Por favor, usa solo números decimales (ejemplo: 2.0, 3.5, etc.) y operadores válidos.";
-        document.getElementById("result").innerHTML = "";
-        return;
-    }
     
     // Limpiar ayuda antes del fetch
     document.getElementById("ayuda").innerHTML = "";
@@ -39,4 +32,14 @@ function limpiar() {
     document.getElementById('inputExpr').value = '';
     document.getElementById('result').innerHTML = '';
     document.getElementById('ayuda').textContent = '';
+}
+
+function setEjemplo(expresion) {
+    // Pegar la expresión en el textarea
+    document.getElementById('inputExpr').value = expresion;
+    // Limpiar resultados anteriores
+    document.getElementById('result').innerHTML = '';
+    document.getElementById('ayuda').textContent = '';
+    // Analizar automáticamente
+    analizar();
 }
