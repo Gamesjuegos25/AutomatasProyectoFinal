@@ -40,6 +40,25 @@ function setEjemplo(expresion) {
     // Limpiar resultados anteriores
     document.getElementById('result').innerHTML = '';
     document.getElementById('ayuda').textContent = '';
-    // Analizar automáticamente
-    analizar();
+    
+    // Desplazar automáticamente al área de análisis
+    document.getElementById('area-analisis').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+    
+    // Enfocar el textarea brevemente para mostrar donde está
+    setTimeout(() => {
+        document.getElementById('inputExpr').focus();
+        document.getElementById('inputExpr').select(); // Selecciona el texto para resaltarlo
+    }, 500);
+    
+    setTimeout(() => {
+        document.getElementById('inputExpr').blur();
+    }, 1500);
+    
+    // Analizar automáticamente después de un breve delay
+    setTimeout(() => {
+        analizar();
+    }, 800);
 }

@@ -114,13 +114,24 @@ def es_ecuacion_aritmetica(tokens):
             if actual['tipo'] == 'LPAREN' and siguiente['tipo'] == 'OP':
                 return False, f"PARÉNTESIS VACÍO: Después de '(' tienes '{siguiente['valor']}'. Falta: poner un número decimal después del '('. Ejemplo: ({siguiente['valor']}2.5 + 3.0) → (2.5 {siguiente['valor']} 3.0)"
     
-    # Verificar paréntesis balanceados
+    # Verificar paréntesis vacíos, sin operadores y balanceados
     balance_paren = 0
     paren_abiertos = 0
     for i, token in enumerate(tokens):
         if token['tipo'] == 'LPAREN':
             balance_paren += 1
             paren_abiertos += 1
+            # Verificar paréntesis vacíos ()
+            if i < len(tokens) - 1 and tokens[i + 1]['tipo'] == 'RPAREN':
+                return False, "PARÉNTESIS VACÍOS: Los paréntesis '()' están vacíos. Falta: agregar contenido dentro de los paréntesis. Ejemplo: (2.5 + 3.0) en lugar de ()"
+            
+            # Verificar paréntesis con solo un número: (num.num)
+            if i < len(tokens) - 2:
+                siguiente = tokens[i + 1]
+                despues = tokens[i + 2]
+                if siguiente['tipo'] == 'NUM' and despues['tipo'] == 'RPAREN':
+                    return False, f"PARÉNTESIS INNECESARIOS: Los paréntesis alrededor de '{siguiente['valor']}' no tienen operación. Falta: agregar un operador dentro del paréntesis. Ejemplo: ({siguiente['valor']} + 2.0) o quitar los paréntesis: {siguiente['valor']}"
+            
         elif token['tipo'] == 'RPAREN':
             balance_paren -= 1
             if balance_paren < 0:
